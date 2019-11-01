@@ -1,0 +1,31 @@
+===Query or Mutation===
+
+query GetLaunchById($id: ID!) {
+  launch(id: $id) {
+    id
+    site
+    rocket {
+      id
+      name
+      type
+    }
+  }
+}
+
+query GetLaunches($pageSize: Int) {
+  launches(pageSize: $pageSize) {
+		cursor
+    hasMore
+    launches {
+      id
+      site
+    }
+  }
+}
+
+===Variables===
+
+{
+  "id": 1,
+	"pageSize": 2
+}
